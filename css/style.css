@@ -18,6 +18,8 @@ h6 {
   overflow: auto;
 }
 
+
+
 .education-entry,
 .work-entry,
 .project-entry {
@@ -26,7 +28,7 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #eaddb9;
   line-height: 48px;
   display: inline;
 }
@@ -34,7 +36,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #b04a49;
   line-height: 29px;
   padding: 10px;
 }
@@ -100,16 +102,16 @@ a {
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #eaddb9;
   display: none;
 }
 
 .orange {
-  background-color: #f5ae23;
+  background-color: #eaddb9;
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: #eaddb9;
 }
 
 .white-text {
