@@ -10,7 +10,7 @@ var bio = {
         location: "Tuscaloosa, AL"
     },
     picture: "./images/profile-picture.png",
-    welcome: "One must maintain a mindset of constant improvement",
+    welcomeMessage: "One must maintain a mindset of constant improvement",
     skills: ["C", "Java", "Python", "HTML5", "CSS3"],
     biopic: "https://shogunatejapanese.com"
 };
@@ -21,7 +21,7 @@ var education = {
             name: "The University of Alabama",
             location: "Tuscaloosa, AL",
             degree: "Bachelor",
-            majors: "Computer Science",
+            majors: ["Computer Science"],
             dates: "August 2014 - Present",
             url: "https://www.ua.edu/"
         },
@@ -29,7 +29,7 @@ var education = {
             name: "Kwansei Gakuin University (関西学院大学)",
             location: "Nishinomiya, Japan",
             degree: "Study Abroad",
-            majors: "Japanese",
+            majors: ["Japanese"],
             dates: "March 2016 - January 2017",
             url: "http://global.kwansei.ac.jp/"
         },
@@ -37,7 +37,7 @@ var education = {
             name: "Università Degli Studi di Modena e Reggio Emilia (UNIMORE)",
             location: "Reggio Emilia, Italy",
             degree: "Study Abroad",
-            majors: "Italian",
+            majors: ["Italian"],
             dates: "May 2015 - August 2015",
             url: "http://www.international.unimore.it/"
         }
@@ -77,7 +77,7 @@ var projects = {
             title: "ChocAn System Terminal",
             dates: "August 2015 - December 2015",
             description: "A software written in Java utililizing built in GUI features to emulate an insurance terminal",
-            images: "http://placehold.it/200/200"
+            images: ["http://placehold.it/200/200", "http://placehold.it/200/200"]
         }
     ]
 };
@@ -90,14 +90,17 @@ education.display = function addEducation() {
         name = name.replace("#", url);
         var location = HTMLschoolLocation.replace("%data%", school.location);
         var degree = HTMLschoolDegree.replace("%data%", school.degree);
-        var major = HTMLschoolMajor.replace("%data%", school.majors);
+        var majors = HTMLschoolMajor.replace("%data%", school.majors);
         var dates = HTMLschoolDates.replace("%data%", school.dates);
 
         $("#education").append(start);
         $(".education-entry:last").append(name);
         $(".education-entry:last").append(location);
         $(".education-entry:last").append(dates);
-        $(".education-entry:last").append(major);
+        school.majors.forEach(function(major){
+          var majorAppend = HTMLschoolMajor.replace("%data%", major);
+          $(".education-entry:last").append(majorAppend);
+        })
         $(".education-entry:last").append(degree);
 
 
@@ -128,14 +131,14 @@ bio.display = function addBio() {
     var github = HTMLgithub.replace("%data%", bio.contacts.github);
     var location = HTMLlocation.replace("%data%", bio.contacts.location);
     var pic = HTMLbioPic.replace("%data%", bio.picture);
-    var welcome = HTMLwelcomeMsg.replace("%data%", bio.welcome);
+    var welcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
 
-    $("#topContacts").prepend(location);
-    $("#topContacts").prepend(github);
-    $("#topContacts").prepend(twitter);
-    $("#topContacts").prepend(email);
-    $("#topContacts").prepend(mobile);
+    $("#topContacts, #footerContacts").prepend(location);
+    $("#topContacts, #footerContacts").prepend(github);
+    $("#topContacts, #footerContacts").prepend(twitter);
+    $("#topContacts, #footerContacts").prepend(email);
+    $("#topContacts, #footerContacts").prepend(mobile);
 
     $("#header").prepend(role);
     $("#header").prepend(name);
@@ -171,13 +174,16 @@ projects.display = function addProjects() {
         var title = HTMLprojectTitle.replace("%data%", project.title);
         var dates = HTMLprojectDates.replace("%data%", project.dates);
         var description = HTMLprojectDescription.replace("%data%", project.description);
-        var image = HTMLprojectImage.replace("%data%", project.images);
+
 
         $("#projects").append(HTMLprojectStart);
         $(".project-entry:last").append(title);
         $(".project-entry:last").append(dates);
         $(".project-entry:last").append(description);
-        $(".project-entry:last").append(image);
+        project.images.forEach(function(image){
+          var imageAppend = HTMLprojectImage.replace("%data%", image);
+          $(".project-entry:last").append(imageAppend);
+        });
     });
 };
 
