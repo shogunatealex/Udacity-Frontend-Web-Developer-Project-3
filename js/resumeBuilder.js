@@ -96,10 +96,10 @@ education.display = function addEducation() {
         $(".education-entry:last").append(name);
         $(".education-entry:last").append(location);
         $(".education-entry:last").append(dates);
-        school.majors.forEach(function(major){
-          var majorAppend = HTMLschoolMajor.replace("%data%", major);
-          $(".education-entry:last").append(majorAppend);
-        })
+        school.majors.forEach(function (major) {
+			var majorAppend = HTMLschoolMajor.replace("%data%", major);
+			$(".education-entry:last").append(majorAppend);
+        });
         $(".education-entry:last").append(degree);
 
 
@@ -179,9 +179,9 @@ projects.display = function addProjects() {
         $(".project-entry:last").append(title);
         $(".project-entry:last").append(dates);
         $(".project-entry:last").append(description);
-        project.images.forEach(function(image){
-          var imageAppend = HTMLprojectImage.replace("%data%", image);
-          $(".project-entry:last").append(imageAppend);
+        project.images.forEach(function (image) {
+			var imageAppend = HTMLprojectImage.replace("%data%", image);
+			$(".project-entry:last").append(imageAppend);
         });
     });
 };
