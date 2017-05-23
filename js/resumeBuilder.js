@@ -9,10 +9,9 @@ var bio = {
         twitter: "@alexanderson234",
         location: "Tuscaloosa, AL"
     },
-    picture: "./images/profile-picture.png",
     welcomeMessage: "One must maintain a mindset of constant improvement",
     skills: ["C", "Java", "Python", "HTML5", "CSS3"],
-    biopic: "https://shogunatejapanese.com"
+    biopic: "./images/profile-picture.png"
 };
 
 var education = {
@@ -130,7 +129,7 @@ bio.display = function addBio() {
     var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
     var github = HTMLgithub.replace("%data%", bio.contacts.github);
     var location = HTMLlocation.replace("%data%", bio.contacts.location);
-    var pic = HTMLbioPic.replace("%data%", bio.picture);
+    var pic = HTMLbioPic.replace("%data%", bio.biopic);
     var welcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
 
